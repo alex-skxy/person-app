@@ -1,4 +1,4 @@
-module fi.pelam.gradlejavafxhelloworldapp {
+module alexskxy.personapp {
     requires javafx.controls;
     requires javafx.graphics;
     exports alexskxy.personapp;

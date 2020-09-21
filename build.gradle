@@ -16,7 +16,7 @@ sourceCompatibility = 14
 targetCompatibility = 14
 
 version = '0.0.2'
-group = 'fi.pelam.gradlejavafxhelloworldapp'
+group = 'alexskxy.personapp'
 mainClassName = "$moduleName/alexskxy.personapp.Main"
 
 javafx {
