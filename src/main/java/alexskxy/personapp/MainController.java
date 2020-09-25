@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class BasicController {
+public class MainController {
     public Button button;
     @FXML
     private Label label;
