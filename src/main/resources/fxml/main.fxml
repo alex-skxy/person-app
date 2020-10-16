@@ -8,11 +8,11 @@
         <Pane layoutX="10.0" layoutY="10.0">
             <Pane minHeight="25.0" minWidth="260.0">
                 <children>
-                    <Button minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetFirst" text="|&lt;--" />
-                    <Button layoutX="50.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetPrevious" text="&lt;--" />
-                    <TextField editable="false" layoutX="100.0" prefHeight="25.0" prefWidth="60.0" />
-                    <Button layoutX="160.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetNext" text="--&gt;" />
-                    <Button layoutX="210.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetLast" text="--&gt;|" />
+                    <Button fx:id="first" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetFirst" text="|&lt;--" />
+                    <Button fx:id="previous" layoutX="50.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetPrevious" text="&lt;--" />
+                    <TextField fx:id="current" editable="false" layoutX="100.0" prefHeight="25.0" prefWidth="60.0"/>
+                    <Button fx:id="next" layoutX="160.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetNext" text="--&gt;" />
+                    <Button fx:id="last" layoutX="210.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetLast" text="--&gt;|" />
                 </children>
             </Pane>
             <Pane layoutX="312.0" minHeight="25.00" minWidth="100">
