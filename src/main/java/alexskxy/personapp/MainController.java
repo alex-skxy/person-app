@@ -1,11 +1,11 @@
 package alexskxy.personapp;
 
 import alexskxy.personapp.entity.Person;
+import alexskxy.personapp.entity.ValueInvalidException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,16 +99,34 @@ public class MainController {
     }
 
     public void handleAdd(ActionEvent actionEvent) {
-
+        people.add(new Person());
+        handleGetLast(new ActionEvent());
     }
 
     public void handleRemove(ActionEvent actionEvent) {
+        people.remove((int) currentPerson);
+        handleGetPrevious(new ActionEvent());
     }
 
     public void handleCancel(ActionEvent actionEvent) {
+        setViewObject(currentPerson);
     }
 
     public void handleSave(ActionEvent actionEvent) {
+        Person person = people.get(currentPerson);
+
+        person.setAnrede(anrede.getText());
+        person.setName(name.getText());
+        person.setVorname(vorname.getText());
+        person.setPlz(plz.getText());
+        person.setOrt(ort.getText());
+        try {
+            person.setEintrittsJahr(Integer.parseInt(eintrittsJahr.getText()));
+            person.setSalaer(Double.parseDouble(salaer.getText()));
+            person.setPensum(Double.parseDouble(pensum.getText()));
+        } catch (ValueInvalidException e) {
+            // TODO: handle exception
+        }
     }
 
     private boolean indexIsValid(Integer index) {
