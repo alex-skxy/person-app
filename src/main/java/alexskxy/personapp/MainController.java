@@ -2,16 +2,26 @@ package alexskxy.personapp;
 
 import alexskxy.personapp.entity.Person;
 import alexskxy.personapp.entity.ValueInvalidException;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainController {
-    private final List<Person> people;
+    public Stage stage;
+    private final Gson gson = new Gson();
+
+    private List<Person> people;
     private Integer currentPerson;
 
     @FXML
@@ -124,8 +134,9 @@ public class MainController {
             person.setEintrittsJahr(Integer.parseInt(eintrittsJahr.getText()));
             person.setSalaer(Double.parseDouble(salaer.getText()));
             person.setPensum(Double.parseDouble(pensum.getText()));
-        } catch (ValueInvalidException e) {
-            // TODO: handle exception
+        } catch (ValueInvalidException | NumberFormatException e) {
+            ModalHelper.showAlert(Alert.AlertType.ERROR, first.getScene().getWindow(), "Error!",
+                    "Buchstaben sind in Felder Eintritts Jahr, Salär und Pensum nicht erlaubt!");
         }
     }
 
@@ -135,5 +146,41 @@ public class MainController {
         } else if (index == -1) {
             return false;
         } else return index != people.size();
+    }
+
+    public void exportPeople() {
+        var file = ModalHelper.showSaveFileDialog(stage, "Daten exportieren");
+        var json = gson.toJson(people);
+        try {
+            var fos = new FileOutputStream(file);
+            fos.write(json.getBytes());
+            fos.close();
+        } catch (IOException e) {
+            ModalHelper.showAlert(Alert.AlertType.ERROR, first.getScene().getWindow(), "Error!",
+                    "Fehler beim exportieren");
+        }
+
+    }
+
+    public void importPeople() {
+        var file = ModalHelper.showOpenFileDialog(stage, "Daten importieren");
+        var type = new TypeToken<List<Person>>() {
+        }.getType();
+
+        try {
+            if (file != null) {
+                var fis = new FileInputStream(file);
+                var json = new String(fis.readAllBytes());
+                fis.close();
+                var importFile = ModalHelper.showAlert(Alert.AlertType.CONFIRMATION, stage, "Bestätigen",
+                        "Wollen Sie die aktuellen Änderungen verwerfen?");
+                if (importFile) {
+                    people = gson.fromJson(json, type);
+                }
+            }
+        } catch (IOException e) {
+            ModalHelper.showAlert(Alert.AlertType.ERROR, first.getScene().getWindow(), "Error!",
+                    "Fehler beim importieren");
+        }
     }
 }

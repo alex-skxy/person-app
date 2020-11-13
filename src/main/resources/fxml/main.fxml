@@ -2,49 +2,57 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane id="AnchorPane" minHeight="185.0" minWidth="424.0" prefHeight="358.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alexskxy.personapp.MainController">
-    <children>
-        <Pane layoutX="10.0" layoutY="10.0">
-            <Pane minHeight="25.0" minWidth="260.0">
-                <children>
-                    <Button fx:id="first" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetFirst" text="|&lt;--" />
-                    <Button fx:id="previous" layoutX="50.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetPrevious" text="&lt;--" />
-                    <TextField fx:id="current" editable="false" layoutX="100.0" prefHeight="25.0" prefWidth="60.0"/>
-                    <Button fx:id="next" layoutX="160.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetNext" text="--&gt;" />
-                    <Button fx:id="last" layoutX="210.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false" onAction="#handleGetLast" text="--&gt;|" />
-                </children>
-            </Pane>
-            <Pane layoutX="312.0" minHeight="25.00" minWidth="100">
-                <Button minHeight="25.0" minWidth="50" mnemonicParsing="false" onAction="#handleAdd" text="+" />
-                <Button layoutX="50" minHeight="25.0" minWidth="50" mnemonicParsing="false" onAction="#handleRemove" text="-" />
-            </Pane>
-            <Pane layoutY="35">
-                <Label minHeight="25.0" text="PersonalNummer" />
-                <Label layoutY="30" minHeight="25.0" text="Anrede" />
-                <Label layoutY="60" minHeight="25.0" text="Name" />
-                <Label layoutY="90" minHeight="25.0" text="Vorname" />
-                <Label layoutY="120" minHeight="25.0" text="Plz" />
-                <Label layoutY="150" minHeight="25.0" text="Ort" />
-                <Label layoutY="180" minHeight="25.0" text="EintrittsJahr" />
-                <Label layoutY="210" minHeight="25.0" text="Salär" />
-                <Label layoutY="240" minHeight="25.0" text="Pensum" />
-            </Pane>
-            <Pane layoutX="131.0" layoutY="35.0">
-                <TextField fx:id="personalNummer" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="anrede" layoutY="30" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="name" layoutY="60" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="vorname" layoutY="90" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="plz" layoutY="120" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="ort" layoutY="150" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="eintrittsJahr" layoutY="180" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="salaer" layoutY="210" minHeight="25.0" prefWidth="150.0" />
-                <TextField fx:id="pensum" layoutY="240" minHeight="25.0" prefWidth="150.0" />
-            </Pane>
+<AnchorPane id="AnchorPane" minHeight="185.0" minWidth="424.0" prefHeight="386.0" prefWidth="435.0"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="alexskxy.personapp.MainController">
+    <Pane layoutX="10.0" layoutY="10.0">
+        <Pane minHeight="25.0" minWidth="260.0">
+            <Button fx:id="first" minHeight="25.0" minWidth="50.0" mnemonicParsing="false"
+                    onAction="#handleGetFirst" text="|&lt;--"/>
+            <Button fx:id="previous" layoutX="50.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false"
+                    onAction="#handleGetPrevious" text="&lt;--"/>
+            <TextField fx:id="current" editable="false" layoutX="100.0" prefHeight="25.0" prefWidth="60.0"/>
+            <Button fx:id="next" layoutX="160.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false"
+                    onAction="#handleGetNext" text="--&gt;"/>
+            <Button fx:id="last" layoutX="210.0" minHeight="25.0" minWidth="50.0" mnemonicParsing="false"
+                    onAction="#handleGetLast" text="--&gt;|"/>
         </Pane>
-        <Pane layoutX="10.0" layoutY="320.0">
-            <Button minHeight="25.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleSave" text="Änderungen speichern" />
-            <Button layoutX="205.0" minHeight="25.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleCancel" text="Änderungen verwerfen" />
+        <Pane layoutX="312.0" minHeight="25.00" minWidth="100">
+            <Button minHeight="25.0" minWidth="50" mnemonicParsing="false" onAction="#handleAdd" text="+"/>
+            <Button layoutX="50" minHeight="25.0" minWidth="50" mnemonicParsing="false" onAction="#handleRemove"
+                    text="-"/>
         </Pane>
-    </children>
+        <Pane layoutY="35">
+            <Label minHeight="25.0" text="PersonalNummer"/>
+            <Label layoutY="30" minHeight="25.0" text="Anrede"/>
+            <Label layoutY="60" minHeight="25.0" text="Name"/>
+            <Label layoutY="90" minHeight="25.0" text="Vorname"/>
+            <Label layoutY="120" minHeight="25.0" text="Plz"/>
+            <Label layoutY="150" minHeight="25.0" text="Ort"/>
+            <Label layoutY="180" minHeight="25.0" text="EintrittsJahr"/>
+            <Label layoutY="210" minHeight="25.0" text="Salär"/>
+            <Label layoutY="240" minHeight="25.0" text="Pensum"/>
+        </Pane>
+        <Pane layoutX="131.0" layoutY="35.0">
+            <TextField fx:id="personalNummer" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="anrede" layoutY="30" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="name" layoutY="60" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="vorname" layoutY="90" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="plz" layoutY="120" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="ort" layoutY="150" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="eintrittsJahr" layoutY="180" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="salaer" layoutY="210" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="pensum" layoutY="240" minHeight="25.0" prefWidth="150.0"/>
+        </Pane>
+    </Pane>
+    <Pane layoutX="10.0" layoutY="320.0">
+        <Button minHeight="25.0" minWidth="200.0" mnemonicParsing="false" onAction="#importPeople"
+                text="Importieren"/>
+        <Button layoutX="205.0" minHeight="25.0" minWidth="200.0" mnemonicParsing="false" onAction="#exportPeople"
+                text="Exportieren"/>
+        <Button layoutY="30" minHeight="25.0" minWidth="200.0" mnemonicParsing="false" onAction="#handleSave"
+                text="Änderungen speichern"/>
+        <Button layoutX="205.0" layoutY="30" minHeight="25.0" minWidth="200.0" mnemonicParsing="false"
+                onAction="#handleCancel" text="Änderungen verwerfen"/>
+    </Pane>
 </AnchorPane>

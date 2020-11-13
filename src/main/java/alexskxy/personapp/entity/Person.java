@@ -103,10 +103,10 @@ public class Person {
     }
 
     public void setEintrittsJahr(Integer eintrittsJahr) throws ValueInvalidException {
-        if (eintrittsJahr >= MAX_YEAR) {
+        if (eintrittsJahr > MAX_YEAR) {
             this.eintrittsJahr = MAX_YEAR;
             throw new ValueInvalidException();
-        } else if (eintrittsJahr <= MIN_YEAR) {
+        } else if (eintrittsJahr < MIN_YEAR) {
             this.eintrittsJahr = MIN_YEAR;
             throw new ValueInvalidException();
         } else {
