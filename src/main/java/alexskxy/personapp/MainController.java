@@ -6,6 +6,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -14,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,9 +111,22 @@ public class MainController {
         }
     }
 
-    public void handleAdd(ActionEvent actionEvent) {
-        people.add(new Person());
-        handleGetLast(new ActionEvent());
+    public void handleAdd(ActionEvent actionEvent) throws IOException {
+        var url = Paths.get("./src/main/resources/fxml/dialog.fxml").toUri().toURL();
+        var fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(url);
+        fxmlLoader.load();
+        NewPersonController npc = fxmlLoader.getController();
+        var s = new Scene(fxmlLoader.getRoot());
+        var stage = new Stage();
+        stage.setScene(s);
+        stage.showAndWait();
+
+        var p = npc.person;
+        if (p != null) {
+            people.add(p);
+            handleGetLast(new ActionEvent());
+        }
     }
 
     public void handleRemove(ActionEvent actionEvent) {
@@ -134,9 +150,12 @@ public class MainController {
             person.setEintrittsJahr(Integer.parseInt(eintrittsJahr.getText()));
             person.setSalaer(Double.parseDouble(salaer.getText()));
             person.setPensum(Double.parseDouble(pensum.getText()));
-        } catch (ValueInvalidException | NumberFormatException e) {
+        } catch (NumberFormatException e) {
             ModalHelper.showAlert(Alert.AlertType.ERROR, first.getScene().getWindow(), "Error!",
                     "Buchstaben sind in Felder Eintritts Jahr, Salär und Pensum nicht erlaubt!");
+        } catch (ValueInvalidException e) {
+            ModalHelper.showAlert(Alert.AlertType.ERROR, first.getScene().getWindow(), "Error!",
+                    "Jahr muss zwischen 1975 und heute sein!");
         }
     }
 

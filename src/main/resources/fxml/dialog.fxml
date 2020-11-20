@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="144.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alexskxy.personapp.NewPersonController">
+    <Pane layoutX="10.0" layoutY="10.0">
+        <Pane>
+            <Label minHeight="25.0" text="Name" />
+            <Label layoutY="30" minHeight="25.0" text="Vorname" />
+            <Label layoutY="60" minHeight="25.0" text="EintrittsJahr" />
+        </Pane>
+        <Pane layoutX="131.0">
+            <TextField fx:id="name" minHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="vorname" layoutY="30" minHeight="25.0" prefWidth="150.0" />
+            <TextField fx:id="eintrittsJahr" layoutY="60" minHeight="25.0" prefWidth="150.0" />
+        </Pane>
+    </Pane>
+    <Pane layoutX="10.0" layoutY="100.0">
+        <Button minHeight="25.0" minWidth="200.0" mnemonicParsing="false" onAction="#cancel" cancelButton="true" text="Abbrechen" />
+        <Button layoutX="205.0" minHeight="25.0" minWidth="200.0" mnemonicParsing="false" onAction="#register"  text="Erfassen" />
+    </Pane>
+</AnchorPane>

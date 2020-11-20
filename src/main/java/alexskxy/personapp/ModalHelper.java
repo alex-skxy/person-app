@@ -9,6 +9,17 @@ import javafx.stage.Window;
 import java.io.File;
 
 public class ModalHelper {
+    private static FileChooser fileChooser;
+
+    static {
+        fileChooser = new FileChooser();
+        var extensionFilter = new FileChooser.ExtensionFilter("JSON Dateien", "*.json");
+        fileChooser.getExtensionFilters().addAll(extensionFilter);
+        fileChooser.setSelectedExtensionFilter(extensionFilter);
+        var currentDir = System.getProperty("user.home");
+        fileChooser.setInitialDirectory(new File(currentDir));
+    }
+
     public static boolean showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -20,14 +31,14 @@ public class ModalHelper {
     }
 
     public static File showOpenFileDialog(Stage stage, String title) {
-        FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(title);
         return fileChooser.showOpenDialog(stage);
     }
 
     public static File showSaveFileDialog(Stage stage, String title) {
-        FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(title);
-        return fileChooser.showSaveDialog(stage);
+        var file =  fileChooser.showSaveDialog(stage);
+        var filePath = file.getAbsolutePath();
+        return filePath.toLowerCase().endsWith(".json") ? file : new File(filePath + ".json");
     }
 }
