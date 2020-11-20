@@ -34,7 +34,7 @@
             <Label layoutY="240" minHeight="25.0" text="Pensum"/>
         </Pane>
         <Pane layoutX="131.0" layoutY="35.0">
-            <TextField fx:id="personalNummer" minHeight="25.0" prefWidth="150.0"/>
+            <TextField fx:id="personalNummer" disable="true" minHeight="25.0" prefWidth="150.0"/>
             <TextField fx:id="anrede" layoutY="30" minHeight="25.0" prefWidth="150.0"/>
             <TextField fx:id="name" layoutY="60" minHeight="25.0" prefWidth="150.0"/>
             <TextField fx:id="vorname" layoutY="90" minHeight="25.0" prefWidth="150.0"/>

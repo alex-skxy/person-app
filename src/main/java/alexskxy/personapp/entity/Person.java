@@ -7,7 +7,7 @@ public class Person {
     private static final Integer MIN_YEAR = 1975;
     private static final Double MAX_SALAER = 99999.95;
 
-    private static Integer anzahlPersonen = 0;
+    public static Integer anzahlPersonen = 1;
 
     private Integer personalNummer;
     private String anrede;
@@ -20,7 +20,7 @@ public class Person {
     private Double pensum;
 
     public Person() {
-        personalNummer = -1;
+        this.personalNummer = anzahlPersonen;
         anrede = "Frau";
         name = "Neue Person";
         vorname = "";
@@ -33,6 +33,7 @@ public class Person {
     }
 
     public Person(String anrede, String name, String vorname) {
+        this.personalNummer = anzahlPersonen;
         this.anrede = anrede;
         this.name = name;
         this.vorname = vorname;
@@ -40,6 +41,7 @@ public class Person {
     }
 
     public Person(String name, String vorname, Integer eintrittsJahr) {
+        this.personalNummer = anzahlPersonen;
         this.name = name;
         this.vorname = vorname;
         this.eintrittsJahr = eintrittsJahr;

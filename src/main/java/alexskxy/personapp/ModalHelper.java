@@ -27,7 +27,7 @@ public class ModalHelper {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.showAndWait();
-        return alert.getResult() == ButtonType.YES;
+        return alert.getResult() == ButtonType.OK;
     }
 
     public static File showOpenFileDialog(Stage stage, String title) {

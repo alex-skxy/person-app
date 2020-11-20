@@ -72,15 +72,15 @@ public class MainController {
 
         Person person = people.get(index);
 
-        personalNummer.setText(person.getPersonalNummer().toString());
+        personalNummer.setText(String.valueOf(person.getPersonalNummer()));
         anrede.setText(person.getAnrede());
         name.setText(person.getName());
         vorname.setText(person.getVorname());
         plz.setText(person.getPlz());
         ort.setText(person.getOrt());
-        eintrittsJahr.setText(person.getEintrittsJahr().toString());
-        salaer.setText(person.getSalaer().toString());
-        pensum.setText(person.getPensum().toString());
+        eintrittsJahr.setText(String.valueOf(person.getEintrittsJahr()));
+        salaer.setText(String.valueOf(person.getSalaer()));
+        pensum.setText(String.valueOf(person.getPensum()));
     }
 
     public void handleGetFirst(ActionEvent actionEvent) {
@@ -195,6 +195,8 @@ public class MainController {
                         "Wollen Sie die aktuellen Änderungen verwerfen?");
                 if (importFile) {
                     people = gson.fromJson(json, type);
+                    Person.anzahlPersonen = people.get(people.size()-1).getPersonalNummer();
+                    setViewObject(0);
                 }
             }
         } catch (IOException e) {
